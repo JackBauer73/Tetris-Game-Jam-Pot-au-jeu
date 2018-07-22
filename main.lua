@@ -77,7 +77,7 @@ function RemoveLineGrid(pLigne)
 end
 
 function love.load()
-  
+    love.window.setMode(640,640)
     largeur = love.graphics.getWidth()
     hauteur = love.graphics.getHeight()
 
