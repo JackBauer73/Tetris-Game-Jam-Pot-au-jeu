@@ -10,6 +10,7 @@ if arg[#arg] == "-debug" then require("mobdebug").start() end
 
 Tetros = require "tetros"
 Grids = require "grid"
+Grids2 = require "grid2"
 
 local currentTetros = {}
 currentTetros.shapeid = 1
@@ -83,6 +84,7 @@ function love.load()
 
     love.keyboard.setKeyRepeat(true)
 
+    Grids2.load()
     Grids.load()
     SpawTetros()
 
@@ -136,6 +138,7 @@ end
 
 function love.draw()
     local Shape = Tetros[currentTetros.shapeid].shape[currentTetros.rotation]
+    Grids2.draw()
     Grids.draw()
     DrawShape(Shape, Tetros[currentTetros.shapeid].color, currentTetros.position.x, currentTetros.position.y)
 end
