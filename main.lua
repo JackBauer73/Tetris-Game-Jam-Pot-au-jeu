@@ -10,7 +10,6 @@ if arg[#arg] == "-debug" then require("mobdebug").start() end
 
 Tetros = require "tetros"
 Grids = require "grid"
-Grids2 = require "grid2"
 
 local currentTetros = {}
 currentTetros.shapeid = 1
@@ -78,13 +77,11 @@ function RemoveLineGrid(pLigne)
 end
 
 function love.load()
-    love.window.setMode(640,640)
     largeur = love.graphics.getWidth()
     hauteur = love.graphics.getHeight()
 
     love.keyboard.setKeyRepeat(true)
 
-    Grids2.load()
     Grids.load()
     SpawTetros()
 
@@ -138,7 +135,6 @@ end
 
 function love.draw()
     local Shape = Tetros[currentTetros.shapeid].shape[currentTetros.rotation]
-    Grids2.draw()
     Grids.draw()
     DrawShape(Shape, Tetros[currentTetros.shapeid].color, currentTetros.position.x, currentTetros.position.y)
 end
